@@ -1,0 +1,8 @@
+<Request URI:	https://selenoid.autotests.cloud/wd/hub/status
+HTTP/1.1 200 OK
+{
+    "value": {
+E        "message": "Selenoid 1.11.3 built at 2024-05-25_12:34:40PM",
+        "ready": true
+    }
+}

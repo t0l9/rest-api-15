@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SelenoidTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-11-12T18:09:05" hostname="Air-Anatolij" time="2.244">
+  <properties/>
+  <testcase name="Позитивный кейс" classname="SelenoidTests" time="2.244"/>
+  <system-out><![CDATA[Request URI:	https://selenoid.autotests.cloud/wd/hub/status
+HTTP/1.1 200 OK
+{
+    "value": {
+        "message": "Selenoid 1.11.3 built at 2024-05-25_12:34:40PM",
+        "ready": true
+    }
+}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

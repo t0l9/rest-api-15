@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+
+
+repositories {
+    mavenCentral()
+}
+
+def slf4jVersion = "1.7.32"
+
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:7.5.1",
+            "org.junit.jupiter:junit-jupiter:5.11.3",
+            "org.assertj:assertj-core:3.26.3",
+            //"com.codeborne:pdf-test:1.5.0",
+            //"com.codeborne:xls-test:1.4.3",
+            //"com.opencsv:opencsv:5.9",
+            //"com.google.code.gson:gson:2.11.0",
+            //"com.github.javafaker:javafaker:1.0.2",
+            //"io.qameta.allure:allure-selenide:2.29.0",
+            "org.aspectj:aspectjweaver:1.9.20",
+            "org.slf4j:slf4j-simple:2.0.7",
+            "io.rest-assured:rest-assured:5.5.0"
+    )
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+
+
+
