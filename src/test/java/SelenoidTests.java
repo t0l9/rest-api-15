@@ -1,9 +1,12 @@
 import io.restassured.http.ContentType;
+import models.lombok.LoginBodyLombokModel;
+import models.pojo.LoginBodyPojoModel;
+import models.pojo.LoginResponsePojoModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.devtools.v127.fetch.model.AuthChallengeResponse;
 
 import static io.restassured.RestAssured.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.is;
 
@@ -153,11 +156,11 @@ public class SelenoidTests {
     @DisplayName("Логин с боди моделью")
     @Test
     void loginWithModelTest() {
-        LoginBodyModel data = new LoginBodyModel();
+        LoginBodyPojoModel data = new LoginBodyPojoModel();
         data.setEmail("eve.holt@reqres.in");
         data.setPassword("cityslicka");
 
-        given()
+        LoginResponsePojoModel responseModel = given()
                 .log().uri()
                 .contentType(ContentType.JSON)
                 .body(data)
@@ -167,7 +170,32 @@ public class SelenoidTests {
                 .log().status()
                 .log().body()
                 .statusCode(200)
-                .body("token", is("QpwL5tke4Pnpja7X4"));
+                .extract().as(LoginResponsePojoModel.class);
+
+        assertThat(responseModel.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
 
     }
+
+//    @DisplayName("Логин с боди моделью")
+//    @Test
+//    void loginWithModelTest() {
+//        LoginBodyLombokModelModel data = new LoginBodyLombokModel();
+//        data.setEmail("eve.holt@reqres.in");
+//        data.setPassword("cityslicka");
+//
+//        LoginBodyLombokModel responseModel = given()
+//                .log().uri()
+//                .contentType(ContentType.JSON)
+//                .body(data)
+//                .when()
+//                .post("https://reqres.in/api/login")
+//                .then()
+//                .log().status()
+//                .log().body()
+//                .statusCode(200)
+//                .extract().as(LoginResponsePojoModel.class);
+//
+//        assertThat(responseModel.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
+//
+//    }
 }

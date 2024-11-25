@@ -23,7 +23,8 @@ dependencies {
             //"io.qameta.allure:allure-selenide:2.29.0",
             "org.aspectj:aspectjweaver:1.9.20",
             "org.slf4j:slf4j-simple:2.0.7",
-            "io.rest-assured:rest-assured:5.5.0"
+            "io.rest-assured:rest-assured:5.5.0",
+            "org.projectlombok:lombok:0.11.0"
     )
 }
 

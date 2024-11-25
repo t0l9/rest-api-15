@@ -1,4 +1,6 @@
-public class LoginBodyModel {
+package models.pojo;
+
+public class LoginBodyPojoModel {
 
     private String email;
     private String password;
