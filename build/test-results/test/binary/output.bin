@@ -1,8 +1,5 @@
-<Request URI:	https://selenoid.autotests.cloud/wd/hub/status
+)Request URI:	https://reqres.in/api/login
 HTTP/1.1 200 OK
 {
-    "value": {
-E        "message": "Selenoid 1.11.3 built at 2024-05-25_12:34:40PM",
-        "ready": true
-    }
+!    "token": "QpwL5tke4Pnpja7X4"
 }

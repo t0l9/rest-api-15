@@ -1,3 +1,4 @@
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.devtools.v127.fetch.model.AuthChallengeResponse;
@@ -148,4 +149,25 @@ public class SelenoidTests {
 
     }
 
+
+    @DisplayName("Логин с боди моделью")
+    @Test
+    void loginWithModelTest() {
+        LoginBodyModel data = new LoginBodyModel();
+        data.setEmail("eve.holt@reqres.in");
+        data.setPassword("cityslicka");
+
+        given()
+                .log().uri()
+                .contentType(ContentType.JSON)
+                .body(data)
+                .when()
+                .post("https://reqres.in/api/login")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .body("token", is("QpwL5tke4Pnpja7X4"));
+
+    }
 }
