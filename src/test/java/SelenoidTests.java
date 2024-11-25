@@ -1,3 +1,4 @@
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import models.lombok.LoginBodyLombokModel;
 import models.pojo.LoginBodyPojoModel;
@@ -5,6 +6,7 @@ import models.pojo.LoginResponsePojoModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static helpers.CustomApiListener.withCustomTempeletes;
 import static io.restassured.RestAssured.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasKey;
@@ -162,6 +164,56 @@ public class SelenoidTests {
 
         LoginResponsePojoModel responseModel = given()
                 .log().uri()
+                .contentType(ContentType.JSON)
+                .body(data)
+                .when()
+                .post("https://reqres.in/api/login")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .extract().as(LoginResponsePojoModel.class);
+
+        assertThat(responseModel.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
+
+    }
+
+    @DisplayName("Логин с боди моделью")
+    @Test
+    void loginWithModelWithAllureTest() {
+        LoginBodyPojoModel data = new LoginBodyPojoModel();
+        data.setEmail("eve.holt@reqres.in");
+        data.setPassword("cityslicka");
+
+        LoginResponsePojoModel responseModel = given()
+                .log().uri()
+                .log().headers()
+                .log().body()
+                .filter(new AllureRestAssured())
+                .contentType(ContentType.JSON)
+                .body(data)
+                .when()
+                .post("https://reqres.in/api/login")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .extract().as(LoginResponsePojoModel.class);
+
+        assertThat(responseModel.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
+
+    }@DisplayName("Логин с боди моделью")
+    @Test
+    void loginWithCustomModelWithAllureTest() {
+        LoginBodyPojoModel data = new LoginBodyPojoModel();
+        data.setEmail("eve.holt@reqres.in");
+        data.setPassword("cityslicka");
+
+        LoginResponsePojoModel responseModel = given()
+                .log().uri()
+                .log().headers()
+                .log().body()
+                .filter(withCustomTempeletes())
                 .contentType(ContentType.JSON)
                 .body(data)
                 .when()

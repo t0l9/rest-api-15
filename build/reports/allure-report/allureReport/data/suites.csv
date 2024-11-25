@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Nov 25 22:36:48 ALMT 2024","Mon Nov 25 22:36:51 ALMT 2024","3107","","SelenoidTests","","SelenoidTests","loginWithModelWithAllureTest","Логин с боди моделью",""
