@@ -1,8 +1,11 @@
 import io.qameta.allure.restassured.AllureRestAssured;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import models.lombok.LoginBodyLombokModel;
 import models.pojo.LoginBodyPojoModel;
 import models.pojo.LoginResponsePojoModel;
+import models.pojo.LoginResponsePojoModelUnsec;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +14,8 @@ import static io.restassured.RestAssured.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.is;
+import static specs.LoginSpecs.loginRequestSpec;
+import static specs.LoginSpecs.loginResponse;
 
 public class SelenoidTests {
 
@@ -202,7 +207,9 @@ public class SelenoidTests {
 
         assertThat(responseModel.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
 
-    }@DisplayName("Логин с боди моделью")
+    }
+
+    @DisplayName("Логин с боди моделью")
     @Test
     void loginWithCustomModelWithAllureTest() {
         LoginBodyPojoModel data = new LoginBodyPojoModel();
@@ -228,6 +235,43 @@ public class SelenoidTests {
 
     }
 
+    @DisplayName("Логин с боди моделью")
+    @Test
+    void loginWithSpecsTest() {
+        LoginBodyPojoModel data = new LoginBodyPojoModel();
+        data.setEmail("eve.holt@reqres.in");
+        data.setPassword("cityslicka");
+
+        LoginResponsePojoModel responseModel = given(loginRequestSpec)
+                .body(data)
+                .when()
+                .post("/login")
+                .then()
+                .spec(loginResponse)
+                .extract().as(LoginResponsePojoModel.class);
+
+        assertThat(responseModel.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
+
+    }
+
+    @DisplayName("Логин с боди моделью")
+    @Test
+    void loginWithSpecsTestUnsecsessful() {
+        LoginBodyPojoModel data = new LoginBodyPojoModel();
+        data.setEmail("peter@klaven");
+
+        LoginResponsePojoModel responseModelun = given(loginRequestSpec)
+                .body(data)
+                .when()
+                .post("/login")
+                .then()
+                .spec(loginResponse)
+                .extract().as(LoginResponsePojoModel.class);
+
+        assertThat(responseModelun.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
+
+    }
+
 //    @DisplayName("Логин с боди моделью")
 //    @Test
 //    void loginWithModelTest() {
@@ -249,5 +293,12 @@ public class SelenoidTests {
 //
 //        assertThat(responseModel.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
 //
+//    }
+
+//    @BeforeAll
+//    public static void setUp(){
+//        RestAssured.filters(withCustomTempeletes());
+//        baseURI = "";
+//        basePath = "/api";
 //    }
 }
