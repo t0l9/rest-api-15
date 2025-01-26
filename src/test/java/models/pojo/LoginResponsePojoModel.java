@@ -11,12 +11,4 @@ public class LoginResponsePojoModel {
     public void setToken(String token) {
         this.token = token;
     }
-
-
-    @Override
-    public String toString() {
-        return "models.pojo.LoginResponseModel{" +
-                "token='" + token + '\'' +
-                '}';
-    }
 }

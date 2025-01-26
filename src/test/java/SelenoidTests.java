@@ -1,3 +1,4 @@
+import io.qameta.allure.Allure;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -33,6 +34,13 @@ public class SelenoidTests {
 
     }
 
+    @Test
+    void chechUsers() {
+        get("https://reqres.in/api/users?page=2")
+                .then()
+                .body("page", is(2))
+                .body("per_page", is(6));
+    }
 
     @Test
     void chechTotalWithStatus() {
@@ -235,6 +243,32 @@ public class SelenoidTests {
 
     }
 
+    @Test
+    void chechUsers2() {
+
+        Allure.step("Отправляем get запрос и логируем детали", ()-> {
+            given()
+                    .log().uri()
+                    .log().headers()
+                    .filter(new AllureRestAssured())
+                    .when()
+                    .get("https://reqres.in/api/users?page=2");
+        });
+
+        Allure.step("Проверяем ответ ", ()-> {
+            given()
+                    .filter(new AllureRestAssured())
+                    .then()
+                    .log().status()
+                    .log().body()
+                    .statusCode(200)
+                    .body("page", is(2))
+                    .body("per_page", is(6));
+        });
+
+
+    }
+
     @DisplayName("Логин с боди моделью")
     @Test
     void loginWithSpecsTest() {
@@ -271,34 +305,4 @@ public class SelenoidTests {
         assertThat(responseModelun.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
 
     }
-
-//    @DisplayName("Логин с боди моделью")
-//    @Test
-//    void loginWithModelTest() {
-//        LoginBodyLombokModelModel data = new LoginBodyLombokModel();
-//        data.setEmail("eve.holt@reqres.in");
-//        data.setPassword("cityslicka");
-//
-//        LoginBodyLombokModel responseModel = given()
-//                .log().uri()
-//                .contentType(ContentType.JSON)
-//                .body(data)
-//                .when()
-//                .post("https://reqres.in/api/login")
-//                .then()
-//                .log().status()
-//                .log().body()
-//                .statusCode(200)
-//                .extract().as(LoginResponsePojoModel.class);
-//
-//        assertThat(responseModel.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
-//
-//    }
-
-//    @BeforeAll
-//    public static void setUp(){
-//        RestAssured.filters(withCustomTempeletes());
-//        baseURI = "";
-//        basePath = "/api";
-//    }
 }
