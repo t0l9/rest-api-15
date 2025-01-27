@@ -136,4 +136,8 @@ public class SelenoidTests2 {
                 .statusCode(200)
                 .body("value.ready", is(true));
     }
+
+
+
+
 }

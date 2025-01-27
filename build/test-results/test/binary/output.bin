@@ -1,8 +1,8 @@
-GRequest URI:	https://user1:1234@selenoid.autotests.cloud/wd/hub/status
-HTTP/1.1 200 OK
+)Request URI:	https://reqres.in/api/users
+HTTP/1.1 201 Created
 {
-    "value": {
-E        "message": "Selenoid 1.11.3 built at 2024-05-25_12:34:40PM",
-        "ready": true
-    }
+    "name": "Anatoliy",
+    "job": "leader",
+    "id": "210",
+,    "createdAt": "2025-01-27T11:07:46.363Z"
 }
