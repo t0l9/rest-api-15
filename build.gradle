@@ -29,7 +29,7 @@ dependencies {
     testImplementation (
             "com.codeborne:selenide:7.5.1",
             "org.junit.jupiter:junit-jupiter:5.11.3",
-            "org.assertj:assertj-core:3.26.3",
+            "org.assertj:assertj-core:3.27.3",
             //"com.codeborne:pdf-test:1.5.0",
             //"com.codeborne:xls-test:1.4.3",
             //"com.opencsv:opencsv:5.9",

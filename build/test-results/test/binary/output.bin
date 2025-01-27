@@ -1,8 +1,5 @@
-)Request URI:	https://reqres.in/api/users
-HTTP/1.1 201 Created
+)Request URI:	https://reqres.in/api/login
+HTTP/1.1 200 OK
 {
-    "name": "Anatoliy",
-    "job": "leader",
-    "id": "210",
-,    "createdAt": "2025-01-27T11:07:46.363Z"
+!    "token": "QpwL5tke4Pnpja7X4"
 }

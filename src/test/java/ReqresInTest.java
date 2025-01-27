@@ -1,6 +1,7 @@
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.logevents.SelenideLogger.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.is;
@@ -92,5 +93,7 @@ public class ReqresInTest {
                 .statusCode(201)
                 .body("name", is(name));
     }
+
+
 
 }

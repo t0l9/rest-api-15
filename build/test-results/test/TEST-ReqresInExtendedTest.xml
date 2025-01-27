@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ReqresInExtendedTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-01-27T15:53:02" hostname="Air-Anatolij.bank.corp.centercredit.kz" time="3.201">
+  <properties/>
+  <testcase name="loginWithModelTestAllure()" classname="ReqresInExtendedTest" time="3.201"/>
+  <system-out><![CDATA[Request URI:	https://reqres.in/api/login
+HTTP/1.1 200 OK
+{
+    "token": "QpwL5tke4Pnpja7X4"
+}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
