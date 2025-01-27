@@ -1,5 +1,11 @@
 )Request URI:	https://reqres.in/api/login
-HTTP/1.1 200 OK
+Headers:		Accept=*/*
+"				Content-Type=application/json
+Body:
+{
+#    "email": "eve.holt@reqres.in",
+    "password": "cityslicka"
+}
 {
 !    "token": "QpwL5tke4Pnpja7X4"
 }
