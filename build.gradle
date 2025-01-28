@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'io.qameta.allure' version '2.10.0'
+    id("io.freefair.lombok") version "8.6"
+
 }
 
 
@@ -39,7 +41,7 @@ dependencies {
             "org.aspectj:aspectjweaver:1.9.20",
             "org.slf4j:slf4j-simple:2.0.7",
             "io.rest-assured:rest-assured:5.5.0",
-            "org.projectlombok:lombok:0.11.0",
+            "org.projectlombok:lombok:1.18.30",
             "io.qameta.allure:allure-rest-assured:2.29.0"
     )
 }

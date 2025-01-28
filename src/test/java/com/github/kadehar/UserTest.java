@@ -50,6 +50,10 @@ public class UserTest {
                 .log().body()
                 .extract().as(com.github.kadehar.lombok.UserData.class);
 
+        //Билдер создание нового объекта
+        User user = User.builder().id(2).email("tfd@mail.ru").build();
+
+
         assertEquals(2, data.getUser().getId());
     }
 }

@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.github.kadehar.UserTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-01-28T16:58:28" hostname="Air-Anatolij" time="1.992">
+<testsuite name="com.github.kadehar.UserTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-01-28T17:36:57" hostname="Air-Anatolij" time="2.115">
   <properties/>
-  <testcase name="singleUserWithModel()" classname="com.github.kadehar.UserTest" time="1.992">
-    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;3&gt; but was: &lt;2&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;3&gt; but was: &lt;2&gt;
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:538)
-	at app//com.github.kadehar.UserTest.singleUserWithModel(UserTest.java:39)
-	at java.base@21.0.4/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base@21.0.4/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base@21.0.4/java.util.ArrayList.forEach(ArrayList.java:1596)
+  <testcase name="singleUserWithLombokModel()" classname="com.github.kadehar.UserTest" time="2.115">
+    <failure message="java.lang.NullPointerException: Cannot invoke &quot;com.github.kadehar.lombok.User.getId()&quot; because the return value of &quot;com.github.kadehar.lombok.UserData.getUser()&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;com.github.kadehar.lombok.User.getId()&quot; because the return value of &quot;com.github.kadehar.lombok.UserData.getUser()&quot; is null
+	at com.github.kadehar.UserTest.singleUserWithLombokModel(UserTest.java:53)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 </failure>
   </testcase>
   <system-out><![CDATA[Request URI:	https://reqres.in/api/users/2
