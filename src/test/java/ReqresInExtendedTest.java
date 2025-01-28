@@ -164,7 +164,7 @@ public class ReqresInExtendedTest {
         //Добавили кастом теплэйтс в папке helpers и resources tpl withCustomTempeletes
         //Добавили spec
 
-        LoginResponseModel response = Allure.step("Отправляем Post запрос на логин", ()->
+        LoginResponseModel response = step("Отправляем Post запрос на логин", ()->
                 given(loginRequestSpec)
                 .body(data)
                 .when()
@@ -175,7 +175,7 @@ public class ReqresInExtendedTest {
         );
 
 
-        Allure.step("Проверяем токен", ()->
+        step("Проверяем токен", ()->
             assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4")
         );
 

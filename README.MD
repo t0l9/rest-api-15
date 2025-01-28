@@ -6,3 +6,5 @@
 Спецификации 
 Отчетность в аддюр 
 Api тесты
+
+[kadehar](src%2Ftest%2Fjava%2Fcom%2Fgithub%2Fkadehar) описан простой тест на specs
